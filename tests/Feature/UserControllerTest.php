@@ -13,7 +13,9 @@ class UserControllerTest extends TestCase
 
     public function testIndex()
     {
-        $response = $this->get(route('show'));
+        $user = factory(User::class)->create();
+
+        $response = $this->get(route('show',["name",$user->name]));
 
         $response->assertStatus(200)
             ->assertViewIs('articles.index');
