@@ -16,6 +16,7 @@ class UserControllerTest extends TestCase
     {
         $user = factory(User::class)->create();
 
+
         $response = $this->get(route('show',["name",$user->name]));
 
         $response->assertStatus(200)
